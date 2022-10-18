@@ -1,0 +1,22 @@
+import React from 'react'
+import { useContext } from 'react';
+import { DarkModeContext } from '../../utils/DarkModeObserver';
+import { RoundLinksStyled } from './RoundLinksStyle'
+import { WavyLink } from "react-wavy-transitions";
+
+
+const RoundLinks = ({text, BgHover, link}) => {
+  const { isDarkMode } = useContext(DarkModeContext);
+  return (
+    <WavyLink to={`/${link}`} color="#8f44fd">
+      <RoundLinksStyled isDarkMode={isDarkMode} BgHover={BgHover} className='round-link'>
+          <svg width="47" height="24" viewBox="0 0 47 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M9.84383 0.475301L0.86766 10.8026C0.316841 11.4363 0.316841 12.4638 0.86766 13.0976L9.84383 23.4249C10.3946 24.0586 11.2877 24.0586 11.8385 23.4249C12.3894 22.7911 12.3894 21.7637 11.8385 21.1299L5.27018 13.5729H47V10.3273H5.27018L11.8385 2.77026C12.3894 2.13652 12.3894 1.10904 11.8385 0.475301C11.2877 -0.158434 10.3946 -0.158434 9.84383 0.475301Z" fill="white" />
+          </svg>
+          <p>{text}</p>  
+      </RoundLinksStyled>
+    </WavyLink>
+  )
+}
+
+export default RoundLinks
